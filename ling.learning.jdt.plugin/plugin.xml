@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            id="ling.learning.jdt.plugin.commands.category"
+            name="Jdt Category">
+      </category>
+      <command
+            categoryId="ling.learning.jdt.plugin.commands.category"
+            name="Jdt Command"
+            id="ling.learning.jdt.plugin.commands.JdtCommand">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="ling.learning.jdt.plugin.handlers.ProjectsHandler"
+            commandId="ling.learning.jdt.plugin.commands.JdtCommand">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="ling.learning.jdt.plugin.commands.JdtCommand"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            contextId="org.eclipse.ui.contexts.window"
+            sequence="M1+6">
+      </key>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               id="ling.learning.jdt.plugin.menus.JdtCommand"
+               label="Jdt Menu"
+               mnemonic="M">
+            <command
+                  commandId="ling.learning.jdt.plugin.commands.JdtCommand"
+                  id="ling.learning.jdt.plugin.menus.JdtCommand"
+                  mnemonic="S">
+            </command>
+         </menu>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar
+               id="ling.learning.jdt.plugin.toolbars.jdtToolbar">
+            <command
+                  id="ling.learning.jdt.plugin.toolbars.jdtCommand"
+                  commandId="ling.learning.jdt.plugin.commands.JdtCommand"
+                  icon="icons/sample.png"
+                  tooltip="Java Projects Parser">
+            </command>
+         </toolbar>
+      </menuContribution>
+   </extension>
+
+</plugin>
